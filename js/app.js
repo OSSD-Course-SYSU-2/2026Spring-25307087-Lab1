@@ -9,6 +9,7 @@ import { ProductDetailModal } from './components/ProductDetailModal.js';
 import { Router } from './core/router.js';
 import { StorefrontView } from './views/StorefrontView.js';
 import { AdminDashboard } from './views/AdminDashboard.js';
+import { UserProfileView } from './views/UserProfileView.js';
 
 class App {
   constructor() {
@@ -44,6 +45,7 @@ class App {
     this.router = new Router([
       { path: '/', component: StorefrontView },
       { path: '/admin', component: AdminDashboard },
+      { path: '/profile', component: UserProfileView },
       { path: '*', component: StorefrontView }
     ]);
 

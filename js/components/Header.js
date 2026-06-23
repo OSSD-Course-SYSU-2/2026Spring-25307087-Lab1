@@ -47,10 +47,10 @@ export class Header extends BaseComponent {
         </div>
         
         <div class="header-right">
-          <div class="user-profile">
+          <a href="#/profile" class="user-profile" style="text-decoration: none; color: inherit;">
             <div class="avatar">${state.user ? state.user.name.charAt(0) : '?'}</div>
             <span class="user-name">${state.user ? state.user.name : 'Sign In'}</span>
-          </div>
+          </a>
           
           <button class="cart-toggle btn-icon" aria-label="Cart">
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
@@ -93,13 +93,13 @@ export class Header extends BaseComponent {
     if (!this.container) return;
 
     // Search input (debounce)
-    const searchInput = this.container.querySelector('#searchInput');
+    const searchInput = this.container.querySelector('.search-input');
     if (searchInput) {
       let timeout = null;
       searchInput.addEventListener('input', (e) => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
-          store.dispatch('SET_SEARCH_QUERY', { query: e.target.value });
+          store.dispatch('SET_SEARCH_QUERY', e.target.value);
         }, 300);
       });
       // Set cursor to end if it was focused
